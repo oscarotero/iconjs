@@ -13,7 +13,7 @@ These instructions translated to json are:
 
 ```json
 [
-	["l", 0, 0, 1, 1],
+    ["l", 0, 0, 1, 1],
     ["l", 0, 1, 1, 0]
 ]
 ```
@@ -25,7 +25,7 @@ import draw from './iconjs/drawer.js';
 
 const size = 16;
 const data = [
-	["l", 0, 0, 1, 1],
+    ["l", 0, 0, 1, 1],
     ["l", 0, 1, 1, 0]
 ];
 
