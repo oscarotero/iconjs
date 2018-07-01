@@ -47,17 +47,7 @@ function r(x, y, width, height) {
 function node(name, properties = {}) {
     const node = document.createElementNS('http://www.w3.org/2000/svg', name);
 
-    Object.keys(properties).forEach(name => {
-        if (name === 'style') {
-            Object.keys(properties[name]).forEach(
-                propName => (node.style[propName] = properties[name][propName])
-            );
-
-            return;
-        }
-
-        node.setAttributeNS(null, name, properties[name]);
-    });
+    Object.keys(properties).forEach(name => node.setAttributeNS(null, name, properties[name]));
 
     return node;
 }

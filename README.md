@@ -37,3 +37,7 @@ document.body.appendChild(icon);
 Now, you have a svg icon of `16x16px` in your body.
 
 More examples in [test](test/test.js)
+
+## Demo
+
+http://oscarotero.design/iconjs/test/
