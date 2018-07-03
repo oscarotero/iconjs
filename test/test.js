@@ -1,6 +1,6 @@
 import draw from '../src/drawer.js';
 
-fetch('../src/icons.json').then(res => res.json()).then(icons => {
+fetch('../icons/icons.json').then(res => res.json()).then(icons => {
     const body = document.body;
 
     for (let name in icons) {

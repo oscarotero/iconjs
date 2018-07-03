@@ -1,10 +1,12 @@
+const Element = require('./element');
 const drawers = { l, r, c, p };
 
-export default function draw(size, data) {
+module.exports = function draw(size, data) {
     const icon = node('svg', {
         width: size,
         height: size,
         viewBox: `0 0 ${size} ${size}`,
+        xmlns: 'http://www.w3.org/2000/svg',
         preserveAspectRatio: 'none'
     });
 
@@ -57,9 +59,9 @@ function pointsAttr(points) {
 
 //Draw a svg node
 function node(name, properties = {}) {
-    const node = document.createElementNS('http://www.w3.org/2000/svg', name);
+    const node = new Element(name);
 
-    Object.keys(properties).forEach(name => node.setAttributeNS(null, name, properties[name]));
+    Object.keys(properties).forEach(name => node.setAttribute(name, properties[name]));
 
     return node;
 }
