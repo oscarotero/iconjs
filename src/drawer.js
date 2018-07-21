@@ -10,7 +10,7 @@ export default function draw(size, data) {
 
     data.forEach(item => {
         const name = item.shift();
-        const attrs = item.map(i => Math.round(i * size));
+        const attrs = item.map(i => coord(i * size, true));
         const element = drawers[name](...attrs);
 
         icon.append(element);
@@ -28,6 +28,27 @@ function l(x1, y1, x2, y2) {
     }
 
     return node('line', { x1, y1, x2, y2 });
+}
+
+//Round a coordinate
+function coord(pos, allowHalf = false) {
+    if (allowHalf) {
+        let dec = pos % 1;
+
+        pos = Math.floor(pos);
+
+        if (dec < 0.33) {
+            return pos;
+        }
+
+        if (dec < 0.66) {
+            return pos + 0.5;
+        }
+
+        return pos + 1;
+    }
+
+    return Math.round(pos);
 }
 
 //Draw a circle
